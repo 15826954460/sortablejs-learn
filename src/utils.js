@@ -82,15 +82,30 @@ function toggleClass(el, name, state) {
 	}
 }
 
-
+/**
+ * @author bys
+ * @date 2020-05-15 17:14:41
+ * @description 获取css样式
+ * @param {object} el html 元素
+ * @param {string} prop style 属性： eg：[width, height, display]
+ * @param {string} val 属性值 eg：['none', '100px', 1]
+ * css(ghostEl, 'display', 'none');
+ */
 function css(el, prop, val) {
 	let style = el && el.style;
 
 	if (style) {
+		/**
+		 * @author bys
+		 * @date 2020-05-15 17:02:10
+		 * @description 获取undefined的原始值，判断是否val是否为undefined
+		*/
 		if (val === void 0) {
+			// document.defaultView 关联浏览器的window对象,非ie浏览器
 			if (document.defaultView && document.defaultView.getComputedStyle) {
 				val = document.defaultView.getComputedStyle(el, '');
 			}
+			// IE浏览器
 			else if (el.currentStyle) {
 				val = el.currentStyle;
 			}
@@ -295,6 +310,7 @@ function isScrolledPast(el, elSide, parentSide) {
  * @param  {Number} childNum      The index of the child
  * @param  {Object} options       Parent Sortable's options
  * @return {HTMLElement}          The child at index childNum, or null if not found
+ * getChild(el, 0, options)
  */
 function getChild(el, childNum, options) {
 	let currentChild = 0,

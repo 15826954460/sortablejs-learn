@@ -160,11 +160,7 @@ let dragEl,
 
 	_detectDirection = function(el, options) {
 		let elCSS = css(el),
-			elWidth = parseInt(elCSS.width)
-				- parseInt(elCSS.paddingLeft)
-				- parseInt(elCSS.paddingRight)
-				- parseInt(elCSS.borderLeftWidth)
-				- parseInt(elCSS.borderRightWidth),
+			elWidth = parseInt(elCSS.width) - parseInt(elCSS.paddingLeft) - parseInt(elCSS.paddingRight) - parseInt(elCSS.borderLeftWidth) - parseInt(elCSS.borderRightWidth), // 获取元素内容宽度
 			child1 = getChild(el, 0, options),
 			child2 = getChild(el, 1, options),
 			firstChildCSS = child1 && css(child1),
